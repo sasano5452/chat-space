@@ -17,21 +17,23 @@ Things you may want to cover:
 
 |Column|type|Options|
 |------|----|-------|
-|name|string|null: fals|
-|email|text|unique: true, null: fals|
+|name|string|null: false, index: true|
+|email|text|unique: true, null: false|
 
 ### Association
 - has_many :messages
-- has_many :groups_uses
+- has_many :groups_users
+- has_many :groups, through: :groups_users
+
 
 ## messageテーブル
 
 |Column|type|Options|
 |------|----|-------|
 |text|text|
-|image|text|
-|use_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|image|string|
+|user|references|null: false, foreign_key:true|
+|group|references|null: false, foreign_key:true|
 
 ### Association
 - belongs_to :user
@@ -41,8 +43,8 @@ Things you may want to cover:
 
 |Column|type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -52,11 +54,12 @@ Things you may want to cover:
 
 |Column|type|Options|
 |------|----|-------|
-|group_name|string|null: false,|
+|name|string|null: false,|
 
 ### Association
 - has_many :groups_users
 - has_many :messags
+- has_many :users, through: :groups_users
 
 * Database initialization
 
