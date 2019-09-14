@@ -6,15 +6,13 @@
           sasano
         %ul.side__header__box__menu
           %li.side-header__box__menu__new-group
-            %i.fas.fa-edit
+            %a(href="#")
+              %i.fas.fa-edit
           %li.side-header__box__mene__edit-user
-            %i.fas.fa-cog
+            %a(href="#")
+              %i.fas.fa-cog
     .side__groups
-      .side__group
-        %p.side__group-name
-          宣誓布告
-        %p.side__latest-message
-          てすと  
+      = render "group"
   .chat-main
     .main__header
       .main__header__left-box
@@ -26,16 +24,9 @@
             sasqno 
       %a(href="#")
         .main__header__edit-btn
-          Edit      
-    .main__messages
-      .main__message
-        .main__message-upper-info
-          %p.main__message-upper-info__talker
-            sasano
-          %p.main__message-upper-info__date
-            1995/03/20/(Tue) 13:23:12
-        %p.main__message__text
-          ああああああああああ    
+          Edit   
+    .main__messages         
+      =render "message"
     .form
       %form.new-message
         .input-box
