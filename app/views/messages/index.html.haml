@@ -1,0 +1,39 @@
+%body.contens
+  .chat-side
+    .side__header
+      .side__header__box
+        %p.side__header__box-user-name
+          sasano
+        %ul.side__header__box__menu
+          %li.side-header__box__menu__new-group
+            %a(href="#")
+              %i.fas.fa-edit
+          %li.side-header__box__mene__edit-user
+            %a(href="#")
+              %i.fas.fa-cog
+    .side__groups
+      = render "group"
+  .chat-main
+    .main__header
+      .main__header__left-box
+        %h2.main__header__left-box__current-group
+          testtest
+        %ul.main__header__left-box__member-list
+          Member : 
+          %li.main__header__left-box__member-list__member
+            sasqno 
+      %a(href="#")
+        .main__header__edit-btn
+          Edit   
+    .main__messages         
+      =render "message"
+    .form
+      %form.new-message
+        .input-box
+          %input.input-box__text(placeholder = "type a message")
+          %label.input-box__image(for= "image")
+            %i.fa.fa-picture-o
+            %input.input-box__image__file{:name => "message[image]", :type => "file", :id => "image"}/
+        %input.submit-btn(type="submit" value="Send")  
+      
+  
