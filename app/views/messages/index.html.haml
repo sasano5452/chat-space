@@ -3,15 +3,16 @@
   .chat-main
     .main__header
       .main__header__left-box
-        %h2.main__header__left-box__current-group
-          testtest
-        %ul.main__header__left-box__member-list
-          Member : 
-          %li.main__header__left-box__member-list__member
-            sasqno 
-        %a(href="#")
-          .main__header__edit-btn
-            Edit   
+        - @group.group_users.each do |group_user|
+          %h2.main__header__left-box__current-group
+            = group_user.group.name
+          %ul.main__header__left-box__member-list
+            Member : 
+            %li.main__header__left-box__member-list__member
+              = group_user.user.name
+      %a(href="#")
+        .main__header__edit-btn
+          Edit   
     .main__messages         
       = render partial: 'message', collection: @messages
     .form
