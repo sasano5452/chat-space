@@ -3,24 +3,23 @@
   .chat-main
     .main__header
       .main__header__left-box
-        %h2.main__header__left-box__current-group
-          testtest
-        %ul.main__header__left-box__member-list
-          Member : 
-          %li.main__header__left-box__member-list__member
-            sasqno 
-        %a(href="#")
-          .main__header__edit-btn
-            Edit   
+        - @group.group_users.each do |group_user|
+          %h2.main__header__left-box__current-group
+            = group_user.group.name
+          %ul.main__header__left-box__member-list
+            Member : 
+            %li.main__header__left-box__member-list__member
+              = group_user.user.name
+      %a(href="#")
+        .main__header__edit-btn
+          Edit   
     .main__messages         
-      =render "message"
+      = render partial: 'message', collection: @messages
     .form
-      %form.new-message
-        .input-box
-          %input.input-box__text(placeholder = "type a message")
-          %label.input-box__image(for= "image")
-            %i.fa.fa-picture-o
-            %input.input-box__image__file{:name => "message[image]", :type => "file", :id => "image"}/
-        %input.submit-btn(type="submit" value="Send")  
-      
-  
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
