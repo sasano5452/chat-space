@@ -10,7 +10,7 @@
             Member : 
             %li.main__header__left-box__member-list__member
               = group_user.user.name
-      %a(href="#")
+      = link_to edit_group_path(@group) do
         .main__header__edit-btn
           Edit   
     .main__messages         
