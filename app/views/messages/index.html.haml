@@ -3,13 +3,13 @@
   .chat-main
     .main__header
       .main__header__left-box
-        - @group.group_users.each do |group_user|
-          %h2.main__header__left-box__current-group
-            = group_user.group.name
-          %ul.main__header__left-box__member-list
-            Member : 
-            %li.main__header__left-box__member-list__member
-              = group_user.user.name
+        %h2.main__header__left-box__current-group
+          = @group.name
+        %ul.main__header__left-box__member-list
+          Member : 
+        - @group.users.each do |user|
+          %li.main__header__left-box__member-list__member
+            = user.name
       = link_to edit_group_path(@group) do
         .main__header__edit-btn
           Edit   
