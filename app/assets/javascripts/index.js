@@ -62,8 +62,8 @@ $(function() {
     addHTML(user_id,user_name)
     
     })
-    $().on('click','.chat-group-user', function() {
-      $(this).remove();
+    $(".chat-group-form__field--right").on('click','.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn', function() {
+      $(this).parent().remove();
     })    
   });
   

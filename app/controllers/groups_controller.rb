@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :set_group, only: %i(edit update)
   def index
   end
 
@@ -17,8 +18,7 @@ class GroupsController < ApplicationController
   end
   
   def edit
-    @group = Group.new
-    @group.users << current_user
+    
   end
 
   def update
