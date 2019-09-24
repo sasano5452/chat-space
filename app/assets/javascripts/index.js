@@ -62,7 +62,7 @@ $(function() {
     addHTML(user_id,user_name)
     
     })
-    $(Document).on('click','.chat-group-user', function() {
+    $().on('click','.chat-group-user', function() {
       $(this).remove();
     })    
   });
