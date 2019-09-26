@@ -19,3 +19,5 @@ public/uploads/*
 
 # Ignore uploaded files in development  アップッロードされたファイルは無視する
  /public/uploads/
+
+ config/secrets.yml
