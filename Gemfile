@@ -70,6 +70,7 @@ end
 
 group :production do
   gem 'unicorn', '5.4.1'
+  gem 'fog-aws'
 end
 
 group :development, :test do
@@ -79,4 +80,3 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
-gem 'fog-aws'
